@@ -11,11 +11,16 @@ func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
 		counts[input.Text()]++
+		/*
+			The command above is the same of:
+			line := input.Text()
+			counts[line] = counts[line]+1
+		*/
+
 	}
-	// NOTE: ignoring potential errors from input.Err()
 	for line, n := range counts {
 		if n > 1 {
-			fmt.Printf("%d\t%s\n", n, line)
+			fmt.Printf("++++%d\t%s\n", n, line)
 		}
 	}
 }
